@@ -23,11 +23,21 @@
 ├── LICENSE
 ├── README.md
 ├── SECURITY.md
+├── assert.go
 ├── benchmark.go
+├── benchmark.go.bak
+├── changelog.md
 ├── cmd
-│   └── example
-│       └── benchmark
-│           └── main.go
+│   ├── example
+│   │   ├── benchmark
+│   │   │   └── main.go
+│   │   ├── randomKind
+│   │   │   ├── main.go
+│   │   │   └── main_test.go
+│   │   └── testes
+│   │       └── main.go
+│   └── perftest
+│       └── main_test.go
 ├── contributing.md
 ├── coverage.txt
 ├── docs
@@ -42,9 +52,18 @@
 ├── go.test.sh
 ├── idea.md
 ├── make_tree_md.sh
-└── tree.md
+├── profile1645635998N.out
+├── profile1645687867N.out
+├── random.go
+├── random_test.go
+├── test.go
+├── tests.go
+├── tests.go.bak
+├── tests_test.go
+├── tree.md
+└── util.go
 
-7 directories, 30 files
+10 directories, 46 files
 ```
 
 [get_tree]: (http://mama.indstate.edu/users/ice/tree/)
