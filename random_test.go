@@ -70,7 +70,7 @@ func Test_randomData(t *testing.T) {
 	for _, tt := range tests {
 		for i := 0; i < 1000; i++ {
 			name := TName(tt.name, strconv.Itoa(i), "")
-			TTypeRun(t, name, RandomData(false), tt.want, tt.wantErr)
+			TTypeRun(t, name, RandomData(-1, false), tt.want, tt.wantErr)
 		}
 	}
 }

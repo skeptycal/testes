@@ -17,6 +17,7 @@ func Contains(needle Any, haystack []Any) bool
 func Example()
 func GetFuncResult(t *testing.T, name string, fn Any, args ...reflect.Value) ([]reflect.Value, error)
 func IsKindEqual(got, want Any) bool
+func RandomKind(useInvalid bool) reflect.Kind
 func RandomString(n int) string
 func TError(t *testing.T, name string, got, want Any)
 func TErrorf(t *testing.T, formatString, name string, got, want Any)
@@ -26,7 +27,7 @@ func TRunTest(t *testing.T, tt *test)
 func TTypeError(t *testing.T, name string, got, want Any)
 func TTypeRun(t *testing.T, name string, got, want Any, wantErr bool)
 type Any = types.Any
-    func RandomData(useInvalid bool) Any
+    func RandomData(knd int, useInvalid bool) Any
 type AnyValue = types.AnyValue
 type Assert interface{ ... }
 type Custom interface{ ... }

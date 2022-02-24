@@ -39,7 +39,7 @@ func makeRandomNumbers(numInts int, ch chan int) {
 	}
 }
 
-func randomKind(useInvalid bool) reflect.Kind {
+func RandomKind(useInvalid bool) reflect.Kind {
 	if useInvalid {
 		return reflect.Kind(rand.Intn(26))
 	}
@@ -65,13 +65,21 @@ func Conj(c complex128) complex128 {
 
 func rng(n int) int { return rand.Intn(n) }
 
-func RandomData(useInvalid bool) Any {
-	switch k := randomKind(useInvalid); k {
+func RandomData(knd int, useInvalid bool) Any {
+	var k reflect.Kind
+
+	if 0 > knd || knd > 26 {
+		k = RandomKind(useInvalid)
+	} else {
+		k = reflect.Kind(knd)
+	}
+
+	switch k {
 	case 0: // Invalid
 		if useInvalid {
-			return k
+			return reflect.Value{}
 		}
-		return RandomData(false)
+		return RandomData(knd, false)
 	case 1: // Bool
 		return randBool()
 	case 2: // Int
