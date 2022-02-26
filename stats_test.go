@@ -1,4 +1,4 @@
-package main
+package testes
 
 import (
 	"testing"
@@ -21,19 +21,20 @@ func BenchmarkAll(b *testing.B) {
 	const maxCount = 1<<24 - 1
 
 	for _, bb := range benchmarks {
-		count := 2
+		count := maxCount
 		b.Run(bb.name, func(b *testing.B) {
-			for {
-				t0 := time.Now()
-				for i := 0; i < b.N; i++ {
-					global = bb.fn(count)
-				}
-				bb.t = time.Since(t0)
-				count *= count
-				if count > maxCount {
-					break
-				}
+			// for {
+			// 	t0 := time.Now()
+			for i := 0; i < b.N; i++ {
+				global = bb.fn(count)
 			}
+			// bb.t = time.Since(t0)
+			// count *= count
+			// if count > maxCount {
+			// 	break
+			// }
+			// }
+			b.ReportAllocs()
 		})
 	}
 }

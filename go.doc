@@ -15,10 +15,14 @@ func AssertSameType(t *testing.T, name string, got, want Any) bool
 func Conj(c complex128) complex128
 func Contains(needle Any, haystack []Any) bool
 func Example()
+func GetEncodedString(n int) string
 func GetFuncResult(t *testing.T, name string, fn Any, args ...reflect.Value) ([]reflect.Value, error)
 func IsKindEqual(got, want Any) bool
+func Less(i, j int) bool
+func Mean(list []int) float64
 func RandomKind(useInvalid bool) reflect.Kind
 func RandomString(n int) string
+func StDev(list []int) float64
 func TError(t *testing.T, name string, got, want Any)
 func TErrorf(t *testing.T, formatString, name string, got, want Any)
 func TName(testname, funcname, argname Any) string
@@ -31,8 +35,12 @@ type Any = types.Any
 type AnyValue = types.AnyValue
 type Assert interface{ ... }
 type Custom interface{ ... }
+type DataPoint interface{ ... }
+    func GetData() DataPoint
 type GetSetter interface{ ... }
+type KindMap map[string]int
 type Random interface{ ... }
+type StatMap interface{ ... }
 type Tester interface{ ... }
     func NewTest(t *testing.T, name string, in, got, want Any, wantErr bool) Tester
     func NewTestSet(t *testing.T, name string, list []Tester) Tester
