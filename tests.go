@@ -2,7 +2,11 @@ package testes
 
 import (
 	"testing"
+
+	"github.com/skeptycal/types"
 )
+
+var Log = types.Log
 
 type (
 	test struct {

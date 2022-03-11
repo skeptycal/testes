@@ -12,6 +12,7 @@ const (
 
 var (
 	ValueOf = types.ValueOf
+	Log     = types.Log
 )
 
 type (

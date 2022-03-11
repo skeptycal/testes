@@ -2,9 +2,12 @@ package testes // import "github.com/skeptycal/testes"
 
 const UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ...
 const ReplacementChar rune = '\uFFFD'
+var ValueOf = types.ValueOf ...
 var LimitResult bool ...
+var Log = types.Log
 var NewAnyValue = types.NewAnyValue
-var ValueOf = types.ValueOf
+var NoValue reflect.Value = reflect.Value{}
+var TBloop = func(fn Any, in []TBvalues) ([]TBvalues, error) { ... }
 func AssertDeepEqual(t *testing.T, name string, got, want Any) bool
 func AssertEqual(t *testing.T, name string, got, want Any) bool
 func AssertKindEqual(t *testing.T, name string, got, want Any) bool
@@ -23,6 +26,7 @@ func Mean(list []int) float64
 func RandomKind(useInvalid bool) reflect.Kind
 func RandomString(n int) string
 func StDev(list []int) float64
+func TBbN(b *testing.B)
 func TError(t *testing.T, name string, got, want Any)
 func TErrorf(t *testing.T, formatString, name string, got, want Any)
 func TName(testname, funcname, argname Any) string
@@ -41,6 +45,13 @@ type GetSetter interface{ ... }
 type KindMap map[string]int
 type Random interface{ ... }
 type StatMap interface{ ... }
+type TBvalues = []reflect.Value
+    var NoValues TBvalues = []reflect.Value{ ... }
+    func TBmakeArgList(tests ...Test) []TBvalues
+    func TBwrapInputValues(args ...interface{}) TBvalues
+type Test interface{ ... }
+    func NewTest(t *testing.T, name string, fn anyFunc, args, want []Any, wantErr bool) (Test, error)
+type TestSet interface{}
 type Tester interface{ ... }
     func NewTest(t *testing.T, name string, in, got, want Any, wantErr bool) Tester
     func NewTestSet(t *testing.T, name string, list []Tester) Tester
